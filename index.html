@@ -11160,7 +11160,7 @@ function makeNumericArrayOperator(fnCalc) {
 <div title="$:/status/RequireReloadDueToPluginChange" revision="0" bag="default">
 <pre>no</pre>
 </div>
-<div list="HammerWidgets $:/plugins/BTC/HammerWidgets $:/config/DynaView/ViewportDimensions" title="$:/StoryList" revision="1" bag="default">
+<div list="HammerWidgets $:/plugins/BTC/HammerWidgets" title="$:/StoryList" revision="1" bag="default">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/snowwhite" description="Centralises the story river" name="Centralised" plugin-type="theme" title="$:/themes/tiddlywiki/centralised" type="application/json" version="5.1.24-prerelease" revision="0" bag="default">
@@ -11361,10 +11361,12 @@ function makeNumericArrayOperator(fnCalc) {
 <div created="20210617160930452" modified="20210619054500139" title="$:/themes/tiddlywiki/vanilla/options/sidebarlayout" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>fluid-fixed</pre>
 </div>
-<div created="20210619071629188" modified="20210619073817917" title="HammerWidgets" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20210619071629188" modified="20210619150709887" title="HammerWidgets" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>!! Sidebar slider
 
 The `&lt;$pan&gt;` widget is used to create a slider that allows for changing the sidebar and story-river width
+
+You need the `hammer.js` and the `dynaview` plugins to be installed in order for the sidebar-slider to work. Additionally, the dynaview plugin must be configured to save the viewport dimensions
 
 Click &lt;$button&gt;here&lt;$list filter="[{$:/state/show-slider}match[yes]]" emptyMessage="""&lt;$action-setfield $tiddler="$:/state/show-slider" text="yes"/&gt;"""&gt;&lt;$action-setfield $tiddler="$:/state/show-slider" text="no"/&gt;&lt;/$list&gt;&lt;/$button&gt; to see where the slider is placed
 
