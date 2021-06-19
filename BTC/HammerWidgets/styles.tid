@@ -1,0 +1,158 @@
+title: $:/plugins/BTC/HammerWidgets/styles
+tags: $:/tags/Stylesheet
+
+<$list filter="[[$:/state/DynaView/ViewportDimensions/Width]!is[missing]]">
+
+	<$list filter="[[$:/theme]is[missing]] [{$:/theme}match[$:/themes/tiddlywiki/heavier]] [{$:/theme}match[$:/themes/tiddlywiki/snowwhite]] [{$:/theme}match[$:/themes/tiddlywiki/vanilla]] [{$:/theme}match[$:/themes/tiddlywiki/starlight]] +[limit[1]]" emptyMessage="""
+
+		.tc-sidebar-slider {
+			display: none;
+		}
+
+	""">
+
+		<$vars viewportWidth={{$:/state/DynaView/ViewportDimensions/Width}} sidebarWidth={{$:/themes/tiddlywiki/vanilla/metrics/sidebarwidth}} pointerLeftPosition={{$:/state/sidebar-slider!!relative-x}} gripLeftDelta={{{ [{$:/state/sidebar-slider!!starting-x}subtract{$:/state/sidebar-slider!!element-left}] }}} gripRightDelta={{{ [{$:/state/sidebar-slider!!element-right}subtract{$:/state/sidebar-slider!!starting-x}] }}} sidebarbreakpoint={{$:/themes/tiddlywiki/vanilla/metrics/sidebarbreakpoint}} sidebarPaddingLeft={{$:/config/hammerwidgets/sidebar-padding-left}}>
+				
+			<$vars storyRiverMinWidthLimit={{{ [<viewportWidth>divide[4]] }}} storyRiverMaxWidthLimit={{{ [<viewportWidth>subtract<sidebarWidth>] }}} sliderLeftPosition={{{ [<pointerLeftPosition>subtract<gripLeftDelta>] }}} sliderRightPosition={{{ [<pointerLeftPosition>add<gripRightDelta>] }}}>
+				
+				<$vars sliderBelowLeftStoryLimit={{{ [<sliderLeftPosition>!match[0]compare:number:lteq<storyRiverMinWidthLimit>then[TRUE]else[FALSE]] }}} sliderAboveRightStoryLimit={{{ [<sliderRightPosition>!match[0]compare:number:gteq<storyRiverMaxWidthLimit>then[TRUE]else[FALSE]] }}}>
+
+					<$set name="viewportWideEnough" value={{{ [<viewportWidth>compare:number:gt<sidebarbreakpoint>then[TRUE]else[FALSE]] }}}>
+
+						<$list filter="[<viewportWideEnough>match[TRUE]]" emptyMessage="""
+						
+							.tc-sidebar-slider {
+								display: none;
+							}
+						
+						""">
+						
+							<$list filter="[[$:/state/sidebar]is[missing]] [{$:/state/sidebar}match[yes]] +[limit[1]]">
+							
+								.tc-sidebar-slider {
+									position: fixed;
+									height: 100%;
+									top: 0px;
+									width: <<sidebarPaddingLeft>>;
+								}
+								
+								<$list filter="[[$:/state/sidebar-slider]!is[missing]]">
+								
+									.tc-sidebar-scrollable {
+										width: calc(100% - <<sliderLeftPosition>>px);
+										max-width: calc(100% - (<<viewportWidth>>px - <<storyRiverMaxWidthLimit>>px));
+										min-width: calc(100% - <<storyRiverMaxWidthLimit>>px + <<sidebarPaddingLeft>>);
+										left: calc(<<sliderLeftPosition>>px + <<sidebarPaddingLeft>>);
+									}
+
+									.tc-story-river {
+										width: calc(<<viewportWidth>>px - (<<viewportWidth>>px - <<sliderLeftPosition>>px));
+										min-width: <<storyRiverMinWidthLimit>>px;
+										max-width: calc(<<storyRiverMaxWidthLimit>>px - <<sidebarPaddingLeft>>);
+									}
+
+									.tc-sidebar-slider {
+										left: calc(<<viewportWidth>>px - (<<viewportWidth>>px - <<sliderLeftPosition>>px));
+									}
+									
+									.tc-tiddler-frame {
+										width: 100%;
+									}
+								
+								</$list>
+								
+								<$list filter="[<sliderBelowLeftStoryLimit>match[TRUE]]">
+								
+									.tc-sidebar-slider {
+										left: <<storyRiverMinWidthLimit>>px;
+									}
+									
+									.tc-sidebar-scrollable {
+										left: calc(<<storyRiverMinWidthLimit>>px + <<sidebarPaddingLeft>>);
+									}
+								
+								</$list>
+								
+								<$list filter="[<sliderAboveRightStoryLimit>match[TRUE]]">
+								
+									.tc-sidebar-slider {
+										left: calc(<<storyRiverMaxWidthLimit>>px - <<sidebarPaddingLeft>>);
+									}
+									
+									.tc-sidebar-scrollable {
+										left: <<storyRiverMaxWidthLimit>>px;
+									}
+								
+								</$list>
+
+								<$list filter="[[$:/state/sidebar-slider]is[missing]]">
+
+									.tc-sidebar-slider {
+										left: calc(<<storyRiverMaxWidthLimit>>px - <<sidebarPaddingLeft>>);
+									}
+
+									.tc-sidebar-scrollable {
+										width: calc(100% - <<storyRiverMaxWidthLimit>>px + <<sidebarPaddingLeft>>);
+									}
+
+									.tc-story-river {
+										width: calc(<<storyRiverMaxWidthLimit>>px - <<sidebarPaddingLeft>>);
+									}
+
+									<$list filter="[{$:/themes/tiddlywiki/vanilla/options/sidebarlayout}match[fixed-fluid]]">
+
+										.tc-sidebar-slider {
+											left: calc({{$:/themes/tiddlywiki/vanilla/metrics/storyright}} - <<sidebarPaddingLeft>>);
+										}
+
+									</$list>
+
+								</$list>
+							
+							</$list>
+						
+							<$list filter="[{$:/state/sidebar}match[no]]">
+							
+								.tc-sidebar-slider {
+									display: none;
+								}
+								
+							</$list>
+
+						</$list>
+
+					</$set>
+
+				</$vars>
+
+			</$vars>
+
+			.tc-sidebar-scrollable {
+				padding-left: <<sidebarPaddingLeft>>;
+			}
+			
+			.tc-story-river {
+				padding-right: 0;
+			}
+
+		</$vars>
+
+	</$list>
+
+</$list>
+
+<$list filter="[[$:/state/DynaView/ViewportDimensions/Width]is[missing]]">
+
+	.tc-sidebar-slider {
+		display: none;
+	}
+
+</$list>
+
+<$list filter="[{$:/state/dragging}match[yes]]">
+
+	iframe {
+		pointer-events: none;
+	}
+
+</$list>

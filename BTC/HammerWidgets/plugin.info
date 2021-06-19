@@ -1,0 +1,8 @@
+{
+	"title": "$:/plugins/BTC/HammerWidgets",
+	"description": "Swipe, Pan, Press, Tap and Pinch widgets",
+	"author": "Simon Huber",
+	"version": "0.1.0-prerelease",
+	"list": "readme license usage",
+	"dependents": ["$:/plugins/tiddlywiki/hammerjs","$:/plugins/tiddlywiki/dynaview"]
+}

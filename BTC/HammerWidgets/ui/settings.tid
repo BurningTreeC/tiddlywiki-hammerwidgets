@@ -1,0 +1,5 @@
+title: $:/plugins/BTC/hammerwidgets/ui/ControlPanel/settings
+tags: $:/tags/ControlPanel/Appearance
+caption: HammerWidgets
+
+Sidebar padding-left: <$edit-text tag="input" default="" placeholder="sidebar padding left" tiddler="$:/config/hammerwidgets/sidebar-padding-left"/>

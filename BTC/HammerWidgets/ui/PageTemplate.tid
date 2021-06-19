@@ -1,0 +1,4 @@
+title: $:/plugins/BTC/HammerWidgets/ui/PageTemplate/sidebar-slider
+tags: $:/tags/PageTemplate
+
+<$pan class="tc-sidebar-slider" state="$:/state/sidebar-slider" startactions="""<$action-setfield $tiddler="$:/state/dragging" text="yes"/>""" endactions="""<$action-deletetiddler $tiddler="$:/state/dragging"/>"""/>

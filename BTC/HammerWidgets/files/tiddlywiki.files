@@ -1,0 +1,12 @@
+{
+	"tiddlers": [
+		{
+			"file": "widgets/pan.js",
+			"fields": {
+				"type": "application/javascript",
+				"title": "$:/plugins/BTC/HammerWidgets/modules/widgets/pan.js",
+				"module-type": "widget"
+			}
+		}
+	]
+}
