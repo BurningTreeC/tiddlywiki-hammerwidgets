@@ -38,13 +38,13 @@ PanWidget.prototype.render = function(parent,nextSibling) {
 	this.computeAttributes();
 	this.execute();
 
-	if(window.Hammer) {
+	var panDomNode = this.document.createElement(this.panTag);
+	panDomNode.setAttribute("class",this.panClass);
+	parent.insertBefore(panDomNode,nextSibling);
+	this.domNodes.push(panDomNode);
+	this.renderChildren(panDomNode,null);
 
-		var panDomNode = this.document.createElement(this.panTag);
-		panDomNode.setAttribute("class",this.panClass);
-		parent.insertBefore(panDomNode,nextSibling);
-		this.domNodes.push(panDomNode);
-		this.renderChildren(panDomNode,null);
+	if(window.Hammer) {
 
 		var panStartValues = [];
 		var precision = this.userToFixed;

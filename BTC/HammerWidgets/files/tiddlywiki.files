@@ -7,6 +7,13 @@
 				"title": "$:/plugins/BTC/HammerWidgets/modules/widgets/pan.js",
 				"module-type": "widget"
 			}
+		},{
+			"file": "widgets/swipe.js",
+			"fields": {
+				"type": "application/javascript",
+				"title": "$:/plugins/BTC/HammerWidgets/modules/widgets/swipe.js",
+				"module-type": "widget"
+			}
 		}
 	]
 }
