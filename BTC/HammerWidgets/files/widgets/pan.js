@@ -14,8 +14,8 @@ actions triggered on pan gestures + event coordinates
 
 var Widget = require("$:/core/modules/widgets/widget.js").widget;
 
-if (typeof window !== 'undefined') {
-	var Hammer = require("$:/plugins/tiddlywiki/hammerjs/hammer.js");
+if (typeof window !== 'undefined' && !window.Hammer) {
+	require("$:/plugins/tiddlywiki/hammerjs/hammer.js");
 }
 
 var PanWidget = function(parseTreeNode,options) {

@@ -135,6 +135,14 @@ tags: $:/tags/Stylesheet
 				padding-right: 0;
 			}
 
+			<$list filter="[{$:/state/sidebar}match[no]]">
+							
+				.tc-story-river {
+					padding-right: 42px;
+				}
+				
+			</$list>
+
 		</$vars>
 
 	</$list>
