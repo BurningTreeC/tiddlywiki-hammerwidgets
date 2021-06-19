@@ -35,6 +35,14 @@ tags: $:/tags/Stylesheet
 									top: 0px;
 									width: <<sidebarPaddingLeft>>;
 								}
+
+								<$list filter="[{$:/view}match[muuri]]">
+
+									.tc-sidebar-slider {
+										width: calc(<<sidebarPaddingLeft>> - 0.5em);
+									}
+
+								</$list>
 								
 								<$list filter="[[$:/state/sidebar-slider]!is[missing]]">
 								
@@ -127,8 +135,20 @@ tags: $:/tags/Stylesheet
 
 			</$vars>
 
-			.tc-sidebar-scrollable {
-				padding-left: <<sidebarPaddingLeft>>;
+			@media (min-width: {{$:/themes/tiddlywiki/vanilla/metrics/sidebarbreakpoint}}) {
+
+				.tc-page-container .tc-sidebar-scrollable {
+					padding-left: <<sidebarPaddingLeft>>;
+				}
+
+				<$list filter="[{$:/view}match[muuri]]">
+
+					.tc-page-container .tc-sidebar-scrollable {
+						padding-left: calc(<<sidebarPaddingLeft>> - 0.5em);
+					}
+
+				</$list>
+
 			}
 			
 			.tc-story-river {
